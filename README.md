@@ -1,98 +1,149 @@
 # Emotiva — Emotion Intelligence Dashboard
 
-A premium, responsive dashboard for exploring multi-label emotion detection from text. Emotiva turns a message into an easy-to-understand emotion profile with confidence scores, visual analytics, and recent-analysis history.
+**Emotiva** is a premium, responsive emotion intelligence dashboard designed to analyze text and present an easy-to-understand emotional profile with confidence scores, visual analytics, and recent-analysis history.
 
-![Status](https://img.shields.io/badge/status-demo-6D49F2?style=flat-square)
-![Responsive](https://img.shields.io/badge/design-responsive-23C8CF?style=flat-square)
-![NLP](https://img.shields.io/badge/domain-NLP-FF4E96?style=flat-square)
+The current version is a standalone front-end prototype that demonstrates the complete user experience for multi-label emotion analysis.
 
-## Highlights
+## ✨ Highlights
 
-- **Multi-label emotion profile** — surfaces a primary emotion alongside related emotional signals.
-- **Confidence visualization** — animated confidence bars and an interactive emotion spectrum chart.
-- **Premium interface** — polished violet, cyan, and pink visual system with responsive layouts for mobile, tablet, and desktop.
-- **Fast interaction flow** — analyze with a button or `Ctrl` + `Enter`; use built-in sample messages to explore the app.
-- **Analysis history** — records recent messages, predicted emotions, confidence, and timestamps in the current session.
-- **Model transparency panel** — clearly presents the intended BERT transformer architecture, model readiness, and inference specifications.
+* **Multi-label emotion profile** — Displays a primary emotion along with related emotional signals.
+* **Confidence visualization** — Presents animated confidence bars and an interactive emotion spectrum chart.
+* **Premium responsive interface** — Modern violet, cyan, and pink visual design with layouts optimized for desktop, tablet, and mobile.
+* **Fast interaction flow** — Analyze text using the button or `Ctrl + Enter`.
+* **Sample messages** — Built-in examples make it easy to explore the dashboard.
+* **Analysis history** — Stores recent analyses during the current browser session.
+* **Model transparency** — Includes a panel describing the intended BERT-based architecture and inference workflow.
 
-## Preview
+## 🚀 Live Demo
 
-Open `index.html` in any modern browser to use the dashboard. No installation or build step is required.
+Open `index.html` in a modern web browser.
 
-## Tech Stack
+No installation, backend server, or model download is required for the current demo.
 
-| Area | Technologies |
-| --- | --- |
-| Interface | HTML5, CSS3, JavaScript (ES6+) |
-| Visual analytics | Chart.js |
-| Design | Responsive CSS, custom glassmorphism UI, Google Fonts |
-| Intended NLP backend | Python, BERT, Hugging Face Transformers, Scikit-learn, Pandas, NumPy |
+## 🛠️ Tech Stack
 
-## Run Locally
+| Area                 | Technologies                                |
+| -------------------- | ------------------------------------------- |
+| Frontend             | HTML5, CSS3, JavaScript (ES6+)              |
+| Visualization        | Chart.js                                    |
+| UI / Design          | Responsive CSS, Glassmorphism, Google Fonts |
+| Intended NLP Backend | Python, BERT, Hugging Face Transformers     |
+| Data / ML            | Scikit-learn, Pandas, NumPy                 |
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/emotiva-emotion-detection.git
-   ```
-
-2. Move into the project directory:
-
-   ```bash
-   cd emotiva-emotion-detection
-   ```
-
-3. Open `index.html` in your browser.
-
-You can also use VS Code's **Live Server** extension for local development.
-
-## Using the Dashboard
-
-1. Enter or paste a message in the **Analyze text** field.
-2. Select **Analyze emotion** or press `Ctrl` + `Enter`.
-3. Review the primary emotion, multi-label confidence profile, emotional dimensions, and spectrum chart.
-4. Check **Recent analyses** to compare previous results.
-
-## Current Demo Behavior
-
-The current version is a standalone front-end prototype. Its predictions are generated in the browser by lightweight keyword-based demo logic so it can be opened immediately without a server or model download.
-
-For production-grade BERT inference, connect the UI to a Python API (for example, FastAPI or Flask) that loads a fine-tuned transformer model and returns multi-label probabilities. The existing dashboard is designed to display those probabilities directly.
-
-## Suggested BERT Backend Architecture
+## 📂 Project Structure
 
 ```text
-Browser dashboard
-      │  POST /analyze { text }
-      ▼
-FastAPI / Flask service
-      │
-      ▼
-Fine-tuned BERT multi-label classifier
-      │
-      ▼
-Emotion probabilities + confidence metrics
-      │
-      ▼
-Dashboard visualizations and history
+Sentiment-Analysis/
+│
+├── index.html
+│
+└── outputs/
+    └── emotioniq/
+        ├── index.html
+        ├── app.js
+        └── styles.css
 ```
 
-## Future Enhancements
+## 💻 Run Locally
 
-- Fine-tune `bert-base-uncased` on GoEmotions or a custom labeled dataset.
-- Add an authenticated REST API for real BERT inference.
-- Store user analysis history in SQLite or PostgreSQL.
-- Add CSV/PDF export and shareable report links.
-- Support batch analysis, language detection, and multilingual transformer models.
+### 1. Clone the repository
 
-## Project Structure
+```bash
+git clone https://github.com/HarshadaPatil-2004/Sentiment-Analysis.git
+```
+
+### 2. Open the project
+
+```bash
+cd Sentiment-Analysis
+```
+
+### 3. Launch the dashboard
+
+Open:
 
 ```text
-.
-├── index.html       # Responsive dashboard, styles, and client-side interactions
-└── README.md        # Project documentation
+index.html
 ```
 
-## License
+in any modern web browser.
 
-This project is available for educational and portfolio use.
+Alternatively, use the **Live Server** extension in VS Code for local development.
+
+## 🎯 Using the Dashboard
+
+1. Enter or paste a message into the **Analyze Text** field.
+2. Click **Analyze Emotion** or press `Ctrl + Enter`.
+3. Review the predicted primary emotion and related emotional signals.
+4. Explore the confidence scores and emotion spectrum visualization.
+5. Check **Recent Analyses** to review previous results from the current session.
+
+## 🔍 Current Demo Behavior
+
+The current implementation is a **standalone front-end prototype**.
+
+The emotion predictions are generated in the browser using lightweight keyword-based demonstration logic. This allows the dashboard to run immediately without requiring a backend server, model download, or GPU.
+
+The interface is designed so that the demo logic can later be replaced with real machine-learning inference.
+
+## 🤖 Planned BERT Backend
+
+For production-grade emotion classification, the dashboard can be connected to a Python API such as **FastAPI** or **Flask**.
+
+The planned architecture is:
+
+```text
+Browser Dashboard
+       │
+       │ POST /analyze
+       │ { "text": "..." }
+       ▼
+FastAPI / Flask API
+       │
+       ▼
+Fine-tuned BERT
+Multi-label Classifier
+       │
+       ▼
+Emotion Probabilities
+       │
+       ▼
+Dashboard Visualizations
+       │
+       ▼
+Analysis History
+```
+
+The backend can return multi-label emotion probabilities that are directly consumed by the existing dashboard visualizations.
+
+## 🔮 Future Enhancements
+
+* Fine-tune `bert-base-uncased` on the GoEmotions dataset or a custom emotion dataset.
+* Integrate a real BERT-based multi-label classification API.
+* Add REST API authentication.
+* Store analysis history using SQLite or PostgreSQL.
+* Add CSV and PDF report export.
+* Support batch text analysis.
+* Add language detection.
+* Support multilingual transformer models.
+* Deploy the complete application using a cloud platform.
+
+## 📸 Dashboard Features
+
+The dashboard is designed to provide:
+
+* Primary emotion detection
+* Related emotion signals
+* Confidence scores
+* Emotion spectrum visualization
+* Recent analysis history
+* Responsive interface
+* Sample text analysis
+* Keyboard shortcut support
+
+## 📌 Project Status
+
+**Current Status:** Front-end prototype
+
+The user interface and visualization layer are implemented. The current browser-based emotion detection uses demonstration logic, while integration with a fine-tuned BERT model is planned as a future enhancement.
+
